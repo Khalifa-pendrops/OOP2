@@ -14,11 +14,11 @@ class System {
     console.table(
       `Student Details: Name: ${this.name}, ID: ${this.#Id}, Grade: ${
         this.grade
-      }`
+      }, Best Subject: ${this.bestSubject}`
     );
   }
 
-  // abstraction here!
+  // abstraction explained here!
   averageGrade(totalScore, numberOfSubjects) {
     throw new Error("Forget it, not for this System class");
   }
@@ -27,10 +27,13 @@ class System {
 class ReturningStudent extends System {
   constructor(name, Id, grade, bestSubject) {
     super(name, Id, grade);
+    this.bestSubject = bestSubject;
   }
 
   specialty() {
-    console.log(`${this.name} is a science student.`);
+    console.log(
+      `${this.name} is a science student. His best suject is ${this.bestSubject}`
+    );
   }
 
   averageGrade(totalScore, numberOfSubjects) {
