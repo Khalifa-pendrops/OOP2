@@ -4,14 +4,17 @@ class Character {
   constructor(name, id) {
     this.name = name;
     this.id = id;
+    //name and id are encapsulted in htis Character class
   }
 
   details() {
-    return `Name: ${this.name}, ID: ${this.id}`;
+    return ` Name: ${this.name},\n ID: ${this.id}`;
   }
 }
 
 // A STUDENT CLASS THAT INHERITS FROM THE CHARACTER CLASS
+//Inhritance is at play here
+//addStudentGrade and getAverageGrade methods uses abstraction to validate the grades array
 class Student extends Character {
   constructor(name, id) {
     super(name, id);
@@ -47,6 +50,8 @@ class Student extends Character {
 }
 
 // A TEACHER CLASS THAT INHERITS FROM THE CHARACTER CLASS
+//Inhritance is at play here
+//the subjectTaught property is encapsulated in this class
 class Teacher extends Character {
   constructor(name, id) {
     super(name, id);
@@ -64,12 +69,14 @@ class Teacher extends Character {
   teachersDetails() {
     const characterDetails = super.details();
     const subjects = this.totalSubjectTaught();
-    return `${characterDetails}, Subjects: [${this.subjectsTaught.join(
+    return `${characterDetails},\n Subjects: [${this.subjectsTaught.join(
       ", "
-    )}], Total Subjects Taught: ${subjects}`;
+    )}],\n Total Subjects Taught: ${subjects}`;
   }
 }
 
+//the students property is encapsulated in this instance
+//abstraction is applied in the methods in this instance
 class SchoolPortal {
   constructor() {
     this.students = [];
@@ -154,4 +161,3 @@ como.addSubjectToTeach("Basic Science");
 
 portal.getTeacherById(456);
 portal.getTeacherById(789);
-
